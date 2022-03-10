@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration validation</title>
+	<style type="text/css">
+		.error
+		{
+		 color: red;
+         background-color: rgb(251, 186, 186);
+		}
+
+        body
+        {
+            background-color:rgb(169, 144, 179);
+        }
+
+        h1
+        {
+            text-align:center;
+            color: rgb(111, 53, 129);
+            font-family: papyrus;
+        }
+        td
+        {
+            color: white;
+        }
+	</style>
+</head>
+<body>
+	<h1>Registration Form</h1>
+    <p id="errormsg1" class="error"></p>
+    <p id="errormsg2" class="error"></p>
+    <p id="errormsg3" class="error"></p>
+    <p id="errormsg4" class="error"></p>
+    <p id="errormsg5" class="error"></p>
+    <p id="errormsg6" class="error"></p>
+	<form method="post" name="signin" onsubmit="return validatef()">
+	<table>
+	 	<tr>
+	 	 	<td>Name:</td>
+			<td><input type="text" name="fname" id="fname" placeholder="First Name"/>
+			<input type="text" name="mname" placeholder="Middle Name"/>
+			<input type="text" name="lname" id="lname" placeholder="Last Name"/></td>
+	 	</tr>
+	    <tr>
+	 	 	<td>Email ID:</td>
+	 		<td><input type="email" size="70" id="email" placeholder="youremail@server.com"></td>
+	 	</tr>
+	    <tr>
+			<td><label>Username</label></td>
+			<td><input type="text" name="username" id="username"></td>
+		</tr>
+		<tr>
+			<td><label>Password: </label></td>
+			<td><input type="password" name="password" id="password"></td>
+		</tr>
+	 	 	
+	 	<tr>
+            <td><label>Confirm Password: </label></td>
+			<td><input type="cpassword" name="cpassword" id="cpassword"></td>
+	 	</tr>
+	 	<tr>
+	 	 	<td></td>
+	 		<td><input type="submit" value="Sign in">
+			<input type="reset" value="Clear All"></td>
+	 	</tr>
+    </table>
+	</form>
+	 <script type="text/javascript">
+	 	function validatef()
+		{
+            var fname= document.getElementById("fname").value;
+            var lname= document.getElementById("lname").value;
+            var email= document.getElementById("email").value;
+			var uname= document.getElementById("username").value;
+			var passwd= document.getElementById("password").value;
+            var cpasswd= document.getElementById("cpassword").value;
+            var ret= true;
+
+			if(fname.length==0)
+			{
+				document.getElementById("errormsg1").innerHTML="First name must be filled";
+				ret= false;
+			}
+            if(lname.length==0)
+			{
+				document.getElementById("errormsg2").innerHTML="Last name must be filled";
+				ret= false;
+			}
+            if(email.length==0)
+			{
+				document.getElementById("errormsg3").innerHTML="Email can not be empty";
+				ret= false;
+			}
+			if(uname.length==0)
+			{
+				document.getElementById("errormsg4").innerHTML="Username can not be empty";
+				ret= false;
+			}
+			
+			if(passwd.length==0)
+			{
+				document.getElementById("errormsg5").innerHTML="Password can not be empty";
+				ret= false;
+			}
+			
+			if(cpasswd.length==0)
+			{
+				document.getElementById("errormsg6").innerHTML="Please confirm your password";
+				ret= false;
+			}
+            return ret;
+		}
+	</script>
+</body>
+</html>
